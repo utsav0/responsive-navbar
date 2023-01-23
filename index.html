@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #ffd9da;
+        }
+
+        .nav_container {
+            display: flex;
+            width: 96%;
+            height: max(8%, 35px);
+            margin: 0 auto;
+            margin-top: 7px;
+            padding: 2px;
+        }
+
+        .btns {
+            background-color: transparent;
+            font-weight: bold;
+            font-family: 'Kalam', cursive;
+            border: none;
+            margin: 0 2.5%;
+            color: #89023e;
+        }
+
+        .empty_div {
+            flex-grow: 1;
+        }
+
+        /* for mobile version */
+        .menu_icon {
+            height: max(8%, 35px);
+            display: none;
+            position: absolute;
+            margin: 10px;
+        }
+
+        @media screen and (max-width: 480px) {
+            .nav_container {
+                display: none;
+                width: 50%;
+                height: 100%;
+                margin: 5px;
+                padding: 10px;
+                flex-direction: column;
+                background-color: #f26a8d;
+                align-items: center;
+            }
+
+            .logo_image {
+                width: 20%;
+                height: auto;
+            }
+
+            .empty_div {
+                flex-grow: 0;
+            }
+
+            .menu_icon {
+                display: block;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Kaushan+Script&family=Solitreo&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <img src="https://cdn-icons-png.flaticon.com/512/56/56763.png" alt="Menu" class="menu_icon"
+        onclick="handle_menu_action()">
+    <nav class="nav_container">
+        <img src="logo.png" alt="Logo" class="logo_image">
+        <div class="empty_div"></div>
+        <button class="btns" id="home_btn">HOME</button>
+        <button class="btns" id="blog_btn">BLOGS</button>
+        <button class="btns" id="product_btn">PRODUCTS</button>
+        <button class="btns" id="contact_btn">CONTACT US</button>
+    </nav>
+
+    <script>
+        const nav_container = document.getElementsByClassName("nav_container")[0];
+        console.log(nav_container);
+        var menu_state = "invisible"; // Default state
+
+        function handle_menu_action() {
+            console.log("clicked");
+            if (menu_state == "invisible") {
+                nav_container.style.display = "flex"
+                menu_state = "visible"
+            }
+            else {
+                nav_container.style.display = "none"
+                menu_state = "invisible"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
